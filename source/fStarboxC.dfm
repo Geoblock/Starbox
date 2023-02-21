@@ -10,6 +10,7 @@ object Form1: TForm1
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  Menu = MainMenu
   Position = poScreenCenter
   OnCreate = FormCreate
   TextHeight = 13
@@ -24,14 +25,14 @@ object Form1: TForm1
     ExplicitWidth = 502
   end
   object GLSceneViewer1: TGLSceneViewer
-    Left = 0
+    Left = 185
     Top = 0
-    Width = 632
+    Width = 447
     Height = 512
     Camera = GLCamera1
     Buffer.BackgroundColor = clBlack
     Buffer.ColorDepth = cd24bits
-    FieldOfView = 157.897079467773400000
+    FieldOfView = 154.779571533203100000
     PenAsTouch = False
     Align = alClient
     OnMouseDown = GLSceneViewer1MouseDown
@@ -270,20 +271,42 @@ object Form1: TForm1
       TabOrder = 3
     end
   end
-  object GLScene1: TGLScene
-    Left = 32
-    Top = 8
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 185
+    Height = 512
+    Align = alLeft
+    TabOrder = 2
+    ExplicitLeft = 160
+    ExplicitTop = 194
+    ExplicitHeight = 41
+    object TreeView: TTreeView
+      Left = 1
+      Top = 1
+      Width = 183
+      Height = 510
+      Align = alClient
+      Indent = 19
+      TabOrder = 0
+      Items.NodeData = {
+        0301000000280000000000000000000000FFFFFFFFFFFFFFFF00000000000000
+        000200000001054D006F00640065006C002A0000000000000000000000FFFFFF
+        FFFFFFFFFF000000000000000000000000010653007000680065007200650026
+        0000000000000000000000FFFFFFFFFFFFFFFF00000000000000000000000001
+        044300750062006500}
+      ExplicitLeft = 24
+      ExplicitTop = 182
+      ExplicitWidth = 121
+      ExplicitHeight = 97
+    end
+  end
+  object GLScene: TGLScene
+    Left = 128
+    Top = 18
     object GLLightSource1: TGLLightSource
       ConstAttenuation = 1.000000000000000000
       Position.Coordinates = {0000004000000000000000000000803F}
-      SpotCutOff = 180.000000000000000000
-    end
-    object GLLightSource2: TGLLightSource
-      Ambient.Color = {0000803F0000803F0000803F0000803F}
-      ConstAttenuation = 1.000000000000000000
-      Position.Coordinates = {000000000000A040000000000000803F}
-      LightStyle = lsOmni
-      Specular.Color = {0000803F0000803F0000803F0000803F}
       SpotCutOff = 180.000000000000000000
     end
     object GLDummyCube1: TGLDummyCube
@@ -300,7 +323,7 @@ object Form1: TForm1
       Position.Coordinates = {0000004000000000000000000000803F}
     end
   end
-  object GLSimpleNavigation1: TGLSimpleNavigation
+  object GLSimpleNavigation: TGLSimpleNavigation
     Form = Owner
     GLSceneViewer = GLSceneViewer1
     FormCaption = 'Starbox C - %FPS'
@@ -320,7 +343,7 @@ object Form1: TForm1
     Left = 174
     Top = 58
   end
-  object GLCadencer1: TGLCadencer
+  object GLCadencer: TGLCadencer
     Left = 32
     Top = 64
   end
@@ -377,5 +400,60 @@ object Form1: TForm1
       end>
     Left = 162
     Top = 17
+  end
+  object MainMenu: TMainMenu
+    Left = 392
+    Top = 24
+    object File1: TMenuItem
+      Caption = '&File'
+      object New1: TMenuItem
+        Caption = '&New'
+      end
+      object Open1: TMenuItem
+        Caption = '&Open...'
+      end
+      object Save1: TMenuItem
+        Caption = '&Save'
+      end
+      object SaveAs1: TMenuItem
+        Caption = 'Save &As...'
+      end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object Exit1: TMenuItem
+        Caption = 'E&xit'
+      end
+    end
+    object Window1: TMenuItem
+      Caption = '&Window'
+      object NewWindow1: TMenuItem
+        Caption = '&New Window'
+      end
+      object Tile1: TMenuItem
+        Caption = '&Tile'
+      end
+      object Cascade1: TMenuItem
+        Caption = '&Cascade'
+      end
+      object ArrangeAll1: TMenuItem
+        Caption = '&Arrange All'
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object Hide1: TMenuItem
+        Caption = '&Hide'
+      end
+      object Show1: TMenuItem
+        Caption = '&Show...'
+      end
+    end
+    object Help1: TMenuItem
+      Caption = '&Help'
+      object About1: TMenuItem
+        Caption = '&About...'
+      end
+    end
   end
 end

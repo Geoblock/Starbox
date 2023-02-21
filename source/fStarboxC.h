@@ -17,11 +17,12 @@
 #include "GLS.Material.hpp"
 #include "GLS.SimpleNavigation.hpp"
 #include <Vcl.Samples.Spin.hpp>
+#include <Vcl.Menus.hpp>
 
 // ---------------------------------------------------------------------------
 class TForm1 : public TForm {
 __published: // IDE-managed Components
-	TGLScene *GLScene1;
+	TGLScene *GLScene;
 	TGLSceneViewer *GLSceneViewer1;
 	TGLLightSource *GLLightSource1;
 	TGLCamera *GLCamera1;
@@ -29,8 +30,8 @@ __published: // IDE-managed Components
 	TPanel *PanelRight;
 	TSplitter *Splitter1;
 	TButton *ButtonStars;
-	TGLSimpleNavigation *GLSimpleNavigation1;
-	TGLCadencer *GLCadencer1;
+	TGLSimpleNavigation *GLSimpleNavigation;
+	TGLCadencer *GLCadencer;
 	TGLMaterialLibrary *MatLibColors;
 	TGroupBox *gbStars;
 	TPanel *Panel2;
@@ -48,7 +49,6 @@ __published: // IDE-managed Components
 	TPanel *Panel6;
 	TPanel *Panel7;
 	TPanel *Panel8;
-	TGLLightSource *GLLightSource2;
 	TRadioGroup *rgStyle;
 	TCheckBox *chbAll;
 	TShape *shO;
@@ -58,6 +58,26 @@ __published: // IDE-managed Components
 	TShape *shK;
 	TShape *shF;
 	TShape *shM;
+	TMainMenu *MainMenu;
+	TMenuItem *Window1;
+	TMenuItem *NewWindow1;
+	TMenuItem *Tile1;
+	TMenuItem *Cascade1;
+	TMenuItem *ArrangeAll1;
+	TMenuItem *Hide1;
+	TMenuItem *Show1;
+	TMenuItem *N1;
+	TMenuItem *File1;
+	TMenuItem *New1;
+	TMenuItem *Open1;
+	TMenuItem *Save1;
+	TMenuItem *SaveAs1;
+	TMenuItem *Exit1;
+	TMenuItem *N2;
+	TMenuItem *Help1;
+	TMenuItem *About1;
+	TPanel *Panel1;
+	TTreeView *TreeView;
 
 	void __fastcall FormMouseWheel(TObject *Sender, TShiftState Shift,
 		int WheelDelta, TPoint &MousePos, bool &Handled);
