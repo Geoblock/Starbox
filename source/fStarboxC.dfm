@@ -1,4 +1,4 @@
-object Form1: TForm1
+object FormBox: TFormBox
   Left = 264
   Top = 193
   Caption = 'Starbox C'
@@ -13,6 +13,7 @@ object Form1: TForm1
   Menu = MainMenu
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnShow = FormShow
   TextHeight = 13
   object Splitter1: TSplitter
     Left = 0
@@ -25,14 +26,14 @@ object Form1: TForm1
     ExplicitWidth = 502
   end
   object GLSceneViewer1: TGLSceneViewer
-    Left = 185
+    Left = 153
     Top = 0
-    Width = 447
+    Width = 479
     Height = 512
-    Camera = GLCamera1
+    Camera = Camera
     Buffer.BackgroundColor = clBlack
     Buffer.ColorDepth = cd24bits
-    FieldOfView = 154.779571533203100000
+    FieldOfView = 156.415664672851600000
     PenAsTouch = False
     Align = alClient
     OnMouseDown = GLSceneViewer1MouseDown
@@ -46,11 +47,11 @@ object Form1: TForm1
     Align = alRight
     TabOrder = 1
     object ButtonStars: TButton
-      Left = 22
-      Top = 16
-      Width = 75
+      Left = 23
+      Top = 15
+      Width = 91
       Height = 25
-      Caption = #1047#1074#1105#1079#1076#1099
+      Caption = 'Add Stars'
       TabOrder = 0
       OnClick = ButtonStarsClick
     end
@@ -139,7 +140,7 @@ object Form1: TForm1
         ParentBackground = False
         TabOrder = 3
       end
-      object CheckBox1: TCheckBox
+      object chbO: TCheckBox
         Left = 16
         Top = 34
         Width = 34
@@ -148,8 +149,9 @@ object Form1: TForm1
         Color = clBtnFace
         ParentColor = False
         TabOrder = 4
+        OnClick = chbOClick
       end
-      object CheckBox2: TCheckBox
+      object chbB: TCheckBox
         Left = 16
         Top = 68
         Width = 34
@@ -158,8 +160,9 @@ object Form1: TForm1
         Color = clBtnFace
         ParentColor = False
         TabOrder = 5
+        OnClick = chbOClick
       end
-      object CheckBox3: TCheckBox
+      object chbA: TCheckBox
         Left = 16
         Top = 102
         Width = 34
@@ -168,8 +171,9 @@ object Form1: TForm1
         Color = clBtnFace
         ParentColor = False
         TabOrder = 6
+        OnClick = chbOClick
       end
-      object CheckBox4: TCheckBox
+      object chbF: TCheckBox
         Left = 16
         Top = 135
         Width = 34
@@ -178,8 +182,9 @@ object Form1: TForm1
         Color = clBtnFace
         ParentColor = False
         TabOrder = 7
+        OnClick = chbOClick
       end
-      object CheckBox5: TCheckBox
+      object chbG: TCheckBox
         Left = 16
         Top = 169
         Width = 34
@@ -190,8 +195,9 @@ object Form1: TForm1
         ParentColor = False
         State = cbChecked
         TabOrder = 8
+        OnClick = chbOClick
       end
-      object CheckBox6: TCheckBox
+      object chbK: TCheckBox
         Left = 16
         Top = 203
         Width = 34
@@ -200,8 +206,9 @@ object Form1: TForm1
         Color = clBtnFace
         ParentColor = False
         TabOrder = 9
+        OnClick = chbOClick
       end
-      object CheckBox7: TCheckBox
+      object chbM: TCheckBox
         Left = 16
         Top = 237
         Width = 34
@@ -210,6 +217,7 @@ object Form1: TForm1
         Color = clBtnFace
         ParentColor = False
         TabOrder = 10
+        OnClick = chbOClick
       end
       object Panel6: TPanel
         Left = 70
@@ -249,8 +257,8 @@ object Form1: TForm1
       end
     end
     object SpinEdit: TSpinEdit
-      Left = 24
-      Top = 47
+      Left = 136
+      Top = 17
       Width = 63
       Height = 22
       MaxValue = 100000
@@ -260,10 +268,10 @@ object Form1: TForm1
     end
     object rgStyle: TRadioGroup
       Left = 6
-      Top = 82
-      Width = 203
+      Top = 58
+      Width = 219
       Height = 90
-      Caption = 'Star Style'
+      Caption = 'Star Show'
       ItemIndex = 0
       Items.Strings = (
         'Square'
@@ -271,55 +279,49 @@ object Form1: TForm1
       TabOrder = 3
     end
   end
-  object Panel1: TPanel
+  object PanelLeft: TPanel
     Left = 0
     Top = 0
-    Width = 185
+    Width = 153
     Height = 512
     Align = alLeft
     TabOrder = 2
-    ExplicitLeft = 160
-    ExplicitTop = 194
-    ExplicitHeight = 41
     object TreeView: TTreeView
       Left = 1
       Top = 1
-      Width = 183
+      Width = 151
       Height = 510
       Align = alClient
       Indent = 19
       TabOrder = 0
       Items.NodeData = {
         0301000000280000000000000000000000FFFFFFFFFFFFFFFF00000000000000
-        000200000001054D006F00640065006C002A0000000000000000000000FFFFFF
+        000300000001054D006F00640065006C002A0000000000000000000000FFFFFF
         FFFFFFFFFF000000000000000000000000010653007000680065007200650026
         0000000000000000000000FFFFFFFFFFFFFFFF00000000000000000000000001
-        044300750062006500}
-      ExplicitLeft = 24
-      ExplicitTop = 182
-      ExplicitWidth = 121
-      ExplicitHeight = 97
+        044300750062006500260000000000000000000000FFFFFFFFFFFFFFFF000000
+        00000000000000000001044400690073006300}
     end
   end
   object GLScene: TGLScene
     Left = 128
     Top = 18
-    object GLLightSource1: TGLLightSource
+    object LightSource: TGLLightSource
       ConstAttenuation = 1.000000000000000000
       Position.Coordinates = {0000004000000000000000000000803F}
       SpotCutOff = 180.000000000000000000
     end
-    object GLDummyCube1: TGLDummyCube
+    object DummyCube: TGLDummyCube
       Direction.Coordinates = {000000000000803F0000000000000000}
       ShowAxes = True
       Up.Coordinates = {0000000000000000000080BF00000000}
       CubeSize = 1.000000000000000000
       VisibleAtRunTime = True
     end
-    object GLCamera1: TGLCamera
+    object Camera: TGLCamera
       DepthOfView = 100.000000000000000000
       FocalLength = 50.000000000000000000
-      TargetObject = GLDummyCube1
+      TargetObject = DummyCube
       Position.Coordinates = {0000004000000000000000000000803F}
     end
   end
@@ -398,8 +400,8 @@ object Form1: TForm1
         Name = 'ClassM'
         Tag = 0
       end>
-    Left = 162
-    Top = 17
+    Left = 243
+    Top = 21
   end
   object MainMenu: TMainMenu
     Left = 392

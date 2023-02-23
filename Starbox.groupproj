@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{301D3F94-F4EC-4989-A4D5-D4A4E7556514}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="StarboxC.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="StarlifeC.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="StarboxC">
+        <MSBuild Projects="StarboxC.cbproj"/>
+    </Target>
+    <Target Name="StarboxC:Clean">
+        <MSBuild Projects="StarboxC.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarboxC:Make">
+        <MSBuild Projects="StarboxC.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="StarlifeC">
+        <MSBuild Projects="StarlifeC.cbproj"/>
+    </Target>
+    <Target Name="StarlifeC:Clean">
+        <MSBuild Projects="StarlifeC.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StarlifeC:Make">
+        <MSBuild Projects="StarlifeC.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="StarboxC;StarlifeC"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="StarboxC:Clean;StarlifeC:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="StarboxC:Make;StarlifeC:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -11,85 +11,142 @@
 #pragma link "GLS.Objects"
 #pragma link "GLS.BaseClasses"
 #pragma link "GLS.Coordinates"
+#pragma link "GLS.VectorTypes"
 
 #pragma link "GLS.Cadencer"
 #pragma link "GLS.Material"
+#pragma link "GLS.Color"
+
 #pragma link "GLS.SimpleNavigation"
 #pragma resource "*.dfm"
-TForm1 *Form1;
+TFormBox *FormBox;
 
 // ---------------------------------------------------------------------------
-__fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner) {
+__fastcall TFormBox::TFormBox(TComponent* Owner) : TForm(Owner) {
 }
 
 // ---------------------------------------------------------------------------
-void __fastcall TForm1::FormCreate(TObject *Sender)
-{
-  MakeStars(Sender);
-}
-
-// ---------------------------------------------------------------------------
-
-void TForm1::MakeStars(TObject *Sender)
+void TFormBox::MakeStars(TObject *Sender)
 {
 	for (int i = 0; i < 1000; i++) {
-		P[i] = new TGLPoints(GLDummyCube1);
-		P[i]->Colors->Add(((float)(rand() % 256)) / 256.0,
+		Stars[i] = new TGLPoints(DummyCube);
+		Stars[i]->Colors->Add(((float)(rand() % 256)) / 256.0,
 			((float)(rand() % 256)) / 256.0,
 			((float)(rand() % 256)) / 256.0, 0.5);
-		P[i]->Size = 5;
-		P[i]->Position->X = 1.0 * rand() / RAND_MAX - 0.5;
-		P[i]->Position->Y = 1.0 * rand() / RAND_MAX - 0.5;
-		P[i]->Position->Z = 1.0 * rand() / RAND_MAX - 0.5;
+		Stars[i]->Size = 5;
+		Stars[i]->Position->X = 1.0 * rand() / RAND_MAX - 0.5;
+		Stars[i]->Position->Y = 1.0 * rand() / RAND_MAX - 0.5;
+		Stars[i]->Position->Z = 1.0 * rand() / RAND_MAX - 0.5;
 
 		if (rgStyle->ItemIndex == 0) {
-			P[i]->Style =  psSquare;
+			Stars[i]->Style =  psSquare;
 		}
 		else
-			P[i]->Style =  psSmooth;
+			Stars[i]->Style =  psSmooth;
 	}
-
 }
 
+// ---------------------------------------------------------------------------
+void __fastcall TFormBox::FormCreate(TObject *Sender)
+{
+  MakeStars(Sender);
+}
+
+//---------------------------------------------------------------------------
+
+void __fastcall TFormBox::FormShow(TObject *Sender)
+{
+  TGLVector AColor;
+  float d;
+
+  TreeView->FullExpand();
+  // colorize shapes  ConvertColorVector(const aColor: TGLColorVector): TColor;
+///  shO->Brush->Color = ConvertRGBColor() ConvertWinColor(
+///  (MatLibColors->Materials->Items[0]->Material->FrontProperties->Diffuse->Color,0);
+}
 
 // ---------------------------------------------------------------------------
-void __fastcall TForm1::ButtonStarsClick(TObject *Sender) {
+void __fastcall TFormBox::ButtonStarsClick(TObject *Sender) {
 
   MakeStars(Sender);
 }
 // ---------------------------------------------------------------------------
 
-void __fastcall TForm1::GLSceneViewer1MouseDown(TObject *Sender,
+void __fastcall TFormBox::GLSceneViewer1MouseDown(TObject *Sender,
 	TMouseButton Button, TShiftState Shift, int X, int Y) {
 	mx = X;
 	my = Y;
-
 }
 
 // ---------------------------------------------------------------------------
-void __fastcall TForm1::FormMouseWheel(TObject *Sender, TShiftState Shift,
+void __fastcall TFormBox::FormMouseWheel(TObject *Sender, TShiftState Shift,
 	int WheelDelta, TPoint &MousePos, bool &Handled) {
 	if (GLSceneViewer1->MouseInControl == true) {
-		GLCamera1->AdjustDistanceToTarget(Power(1.1, -WheelDelta / 120));
+		Camera->AdjustDistanceToTarget(Power(1.1, -WheelDelta / 120));
 	}
 }
 
 // ---------------------------------------------------------------------------
 
-void __fastcall TForm1::GLSceneViewer1MouseMove(TObject *Sender,
+void __fastcall TFormBox::GLSceneViewer1MouseMove(TObject *Sender,
 	TShiftState Shift, int X, int Y) {
 	if (Shift.Contains(ssLeft))
-		GLCamera1->MoveAroundTarget(my - Y, mx - X);
+		Camera->MoveAroundTarget(my - Y, mx - X);
 	else if (Shift.Contains(ssRight))
-		GLCamera1->RotateTarget(my - Y, mx - X, 0);
+		Camera->RotateTarget(my - Y, mx - X, 0);
 	mx = X;
 	my = Y;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::chbAllClick(TObject *Sender)
+void __fastcall TFormBox::chbAllClick(TObject *Sender)
 {
-// if chbAll->Cheked then  all gbAtars Cheked
+// if chbAll->Cheked then all gbAstars cheked and viewing
+}
+
+//---------------------------------------------------------------------------
+
+void __fastcall TFormBox::chbOClick(TObject *Sender)
+{
+// switch to view different spectral types of stars
+ int i;
+ switch (i) {
+	 {
+	  case 'O' : {
+	  //
+		break;
+	  }
+	  case 'B' : {
+		//
+	  break;
+	  }
+	  case 'A' : {
+		  //
+	  break;
+	  }
+	  case 'F' : {
+		//
+	  break;
+	  }
+	  case 'G' : {
+		//
+	  break;
+	  }
+	  case 'K' : {
+		//
+	  break;
+	  }
+	  case 'M' : {
+		//
+	  break;
+	  }
+	  default : {
+	  //
+	  }
+	}
+ }
+
+
 }
 //---------------------------------------------------------------------------
 
