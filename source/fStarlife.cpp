@@ -3,7 +3,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "fStarlifeC.h"
+#include "fStarlife.h"
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "GLS.Scene"
@@ -19,7 +19,7 @@
 #pragma link "GLS.Atmosphere"
 
 #pragma resource "*.dfm"
-TForm1* Form1;
+TFormLife* FormLife;
 
 // There should be a dynamic array
 TGLPoints* Stars_O[12];   // Array of 12 stars for O class
@@ -72,11 +72,11 @@ int Random(int min, int max)
 }
 
 // ---------------------------------------------------------------------------
-__fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner) {}
+__fastcall TFormLife::TFormLife(TComponent* Owner) : TForm(Owner) {}
 
 
 // ---------------------------------------------------------------------------
-void __fastcall TForm1::FormCreate(TObject* Sender)
+void __fastcall TFormLife::FormCreate(TObject* Sender)
 {
 	GLSkyDome1->Bands->Clear();
 	time = 0;
@@ -84,7 +84,7 @@ void __fastcall TForm1::FormCreate(TObject* Sender)
 }
 
 // ---------------------------------------------------------------------------
-void __fastcall TForm1::btnStartClick(TObject* Sender)
+void __fastcall TFormLife::btnStartClick(TObject* Sender)
 {
 	for (int i = 0; i < Count_O; i++) {
 		Times_O[i] = Random(min_time_live_O, max_time_live_O);
@@ -174,7 +174,7 @@ int Times_add[10000];
 int index = 0;
 
 // ---------------------------------------------------------------------------
-void __fastcall TForm1::Timer1Timer(TObject* Sender)
+void __fastcall TFormLife::Timer1Timer(TObject* Sender)
 {
 	if (is_simulated) {
 		time++;
@@ -319,7 +319,7 @@ void __fastcall TForm1::Timer1Timer(TObject* Sender)
 }
 
 // ---------------------------------------------------------------------------
-void __fastcall TForm1::chbSpeed10Click(TObject* Sender)
+void __fastcall TFormLife::chbSpeed10Click(TObject* Sender)
 {
 	if (chbSpeed10->Checked) {
         Timer1->Interval = 100;
@@ -329,12 +329,12 @@ void __fastcall TForm1::chbSpeed10Click(TObject* Sender)
 }
 
 // ---------------------------------------------------------------------------
-void __fastcall TForm1::FormClose(TObject* Sender, TCloseAction &Action)
+void __fastcall TFormLife::FormClose(TObject* Sender, TCloseAction &Action)
 {
 	Atmosphere->Free();
 }
 
-void __fastcall TForm1::GLCadencer1Progress(
+void __fastcall TFormLife::GLCadencer1Progress(
 	TObject* Sender, const double deltaTime, const double newTime)
 {
 	GLSceneViewer1->Invalidate();
@@ -343,7 +343,7 @@ void __fastcall TForm1::GLCadencer1Progress(
 
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::ShapeOMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+void __fastcall TFormLife::ShapeOMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
 		  int X, int Y)
 {
   ColorDialog1->Color = ShapeO->Brush->Color;
@@ -358,7 +358,7 @@ void __fastcall TForm1::ShapeOMouseDown(TObject *Sender, TMouseButton Button, TS
 //---------------------------------------------------------------------------
 
 
-void __fastcall TForm1::ShapeBMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+void __fastcall TFormLife::ShapeBMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y)
 {
   ColorDialog1->Color = ShapeB->Brush->Color;
@@ -370,7 +370,7 @@ void __fastcall TForm1::ShapeBMouseDown(TObject *Sender, TMouseButton Button, TS
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::ShapeAMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+void __fastcall TFormLife::ShapeAMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y)
 {
   ColorDialog1->Color = ShapeA->Brush->Color;
@@ -382,7 +382,7 @@ void __fastcall TForm1::ShapeAMouseDown(TObject *Sender, TMouseButton Button, TS
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::ShapeFMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+void __fastcall TFormLife::ShapeFMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y)
 {
   ColorDialog1->Color = ShapeF->Brush->Color;
@@ -395,7 +395,7 @@ void __fastcall TForm1::ShapeFMouseDown(TObject *Sender, TMouseButton Button, TS
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::ShapeGMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+void __fastcall TFormLife::ShapeGMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y)
 {
   ColorDialog1->Color = ShapeG->Brush->Color;
@@ -407,7 +407,7 @@ void __fastcall TForm1::ShapeGMouseDown(TObject *Sender, TMouseButton Button, TS
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::ShapeKMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+void __fastcall TFormLife::ShapeKMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y)
 {
   ColorDialog1->Color = ShapeK->Brush->Color;
@@ -419,7 +419,7 @@ void __fastcall TForm1::ShapeKMouseDown(TObject *Sender, TMouseButton Button, TS
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::ShapeMMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
+void __fastcall TFormLife::ShapeMMouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y)
 {
   ColorDialog1->Color = ShapeM->Brush->Color;
@@ -432,7 +432,7 @@ void __fastcall TForm1::ShapeMMouseDown(TObject *Sender, TMouseButton Button, TS
 
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::chbOClick(TObject *Sender)
+void __fastcall TFormLife::chbOClick(TObject *Sender)
 {
  if (chbO->Checked)
   StarsO->Visible = false;
@@ -440,7 +440,7 @@ void __fastcall TForm1::chbOClick(TObject *Sender)
 
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::chbMClick(TObject *Sender)
+void __fastcall TFormLife::chbMClick(TObject *Sender)
 {
  if (chbM->Checked)
   StarsM->Visible = false;
@@ -449,7 +449,7 @@ void __fastcall TForm1::chbMClick(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
-void __fastcall TForm1::chbStopClick(TObject *Sender)
+void __fastcall TFormLife::chbStopClick(TObject *Sender)
 {
   is_simulated == chbStop->Checked;
 }

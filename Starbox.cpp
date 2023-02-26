@@ -4,10 +4,9 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("source\fStarlifeC.cpp", Form1);
-//---------------------------------------------------------------------------
-//---------------------------------------------------------------------------
-//---------------------------------------------------------------------------
+USEFORM("source\fStarlife.cpp", FormLife);
+USEFORM("source\fStarbox.cpp", FormBox);
+USEFORM("source\fProjections.cpp", FormProjections);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -15,7 +14,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
-		Application->CreateForm(__classid(TForm1), &Form1);
+		Application->CreateForm(__classid(TFormBox), &FormBox);
 		Application->Run();
 	}
 	catch (Exception &exception)

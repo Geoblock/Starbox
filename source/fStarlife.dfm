@@ -1,4 +1,4 @@
-object Form1: TForm1
+object FormLife: TFormLife
   Left = 0
   Top = 0
   Caption = 'Random Stars with LifeTimes'

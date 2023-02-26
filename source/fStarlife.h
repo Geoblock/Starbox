@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------
-#ifndef fStarlifeCH
-#define fStarlifeCH
+#ifndef fStarlifeH
+#define fStarlifeH
 //---------------------------------------------------------------------------
 #include <tchar.h>
 #include <System.Classes.hpp>
@@ -28,7 +28,7 @@
 #include "GLS.Color.hpp"
 
 //---------------------------------------------------------------------------
-class TForm1 : public TForm
+class TFormLife : public TForm
 {
   __published: // IDE-managed Components
     TGLScene* GLScene1;
@@ -98,12 +98,12 @@ class TForm1 : public TForm
   private: // User declarations
     TGLAtmosphere* Atmosphere;
   public: // User declarations
-    __fastcall TForm1(TComponent* Owner);
+    __fastcall TFormLife(TComponent* Owner);
     int time;
     bool is_simulated;
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm1* Form1;
+extern PACKAGE TFormLife* FormLife;
 //---------------------------------------------------------------------------
 #endif
 
