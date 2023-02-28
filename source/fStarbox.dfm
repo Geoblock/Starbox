@@ -38,8 +38,6 @@ object FormBox: TFormBox
     Align = alClient
     OnMouseDown = GLSceneViewer1MouseDown
     TabOrder = 0
-    ExplicitWidth = 595
-    ExplicitHeight = 512
   end
   object PanelRight: TPanel
     Left = 751
@@ -48,8 +46,6 @@ object FormBox: TFormBox
     Height = 579
     Align = alRight
     TabOrder = 1
-    ExplicitLeft = 736
-    ExplicitHeight = 512
     object ButtonStars: TButton
       Left = 23
       Top = 15
@@ -290,7 +286,6 @@ object FormBox: TFormBox
     Height = 579
     Align = alLeft
     TabOrder = 2
-    ExplicitHeight = 512
     object TreeView: TTreeView
       Left = 1
       Top = 1
@@ -306,8 +301,6 @@ object FormBox: TFormBox
         0000000000000000000000FFFFFFFFFFFFFFFF00000000000000000000000001
         044300750062006500260000000000000000000000FFFFFFFFFFFFFFFF000000
         00000000000000000001044400690073006300}
-      ExplicitWidth = 151
-      ExplicitHeight = 510
     end
   end
   object GLScene: TGLScene
@@ -462,6 +455,7 @@ object FormBox: TFormBox
       end
       object About1: TMenuItem
         Caption = '&About...'
+        OnClick = About1Click
       end
     end
   end

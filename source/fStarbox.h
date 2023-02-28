@@ -24,6 +24,7 @@
 
 #include "fProjections.h"
 #include "fStarLife.h"
+#include "fAbout.h"
 
 // ---------------------------------------------------------------------------
 class TFormBox : public TForm {
@@ -97,6 +98,7 @@ __published: // IDE-managed Components
 	void __fastcall chbOClick(TObject *Sender);
 	void __fastcall miStarLifeClick(TObject *Sender);
 	void __fastcall miProjectionsClick(TObject *Sender);
+	void __fastcall About1Click(TObject *Sender);
 private: // User declarations
 	TGLPoints *Stars[1000];
 	void MakeStars(TObject *Sender);

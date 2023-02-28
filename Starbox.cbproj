@@ -116,6 +116,12 @@
         <TASM_Debugging>None</TASM_Debugging>
     </PropertyGroup>
     <ItemGroup>
+        <CppCompile Include="source\fAbout.cpp">
+            <Form>FormAbout</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>source\fAbout.h</DependentOn>
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
         <CppCompile Include="source\fProjections.cpp">
             <Form>FormProjections</Form>
             <FormType>dfm</FormType>
@@ -140,6 +146,7 @@
         <FormResources Include="source\fStarlife.dfm"/>
         <FormResources Include="source\fStarbox.dfm"/>
         <FormResources Include="source\fProjections.dfm"/>
+        <FormResources Include="source\fAbout.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
